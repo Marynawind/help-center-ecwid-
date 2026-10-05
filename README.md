@@ -135,6 +135,7 @@ Places where the page now deliberately differs from the `.docx`:
 |---|---|
 | Order status card and FAQ "What is the status of my order?" | "Login to your Account" → "Log in to your Account" — "log in" is the verb, "login" the noun |
 | FAQ "Which actions are you not compatible with?" | "Faxon F7" → "Faxon FX7" — the client confirmed FX7 on 2026-10-05 |
+| Order status card | "Barrel Order Status Request" button moved below Lead Times, as the client asked on 2026-10-05 |
 
 ## Deep links
 
