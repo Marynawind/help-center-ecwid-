@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help Center | Outlier USA</title>
+<meta name="description" content="Answers about Outlier barrels and chassis, order status, lead times, changes, cancellations, returns, exchanges and the Free Suppressor Rebate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,600,700%7CBarlow:400,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
+<style>
+body {
+  margin: 0;
+  background: #fff;
+}
+</style>
+</head>
+<body>
+
+<div class="hc-root" id="hc-top">
+
+  <!-- ============ HERO + SEARCH ============ -->
+  <section class="hc-hero">
+    <div class="hc-wrap">
+      <h1>How can we help?</h1>
+      <p class="hc-hero-sub">Barrels, chassis, order status, lead times and returns — all in one place.</p>
+
+      <form class="hc-search" role="search" onsubmit="return false;">
+        <label class="hc-sr" for="hc-q">Search the Help Center</label>
+        <svg class="hc-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+        <input id="hc-q" type="search" placeholder="Search — e.g. “twist rate”, “Savage”, “cancel”" autocomplete="off">
+        <button type="button" class="hc-search-clear" id="hc-search-clear" hidden aria-label="Clear search">&times;</button>
+      </form>
+      <p class="hc-search-status" id="hc-search-status" role="status" aria-live="polite"></p>
+
+      <section class="hc-results" id="hc-results" hidden aria-labelledby="hc-results-title">
+        <h2 class="hc-sr" id="hc-results-title">Search results</h2>
+        <div id="hc-results-list"></div>
+      </section>
+
+      <p class="hc-hero-cta">
+        <a class="hc-btn hc-btn-primary hc-btn-lg" href="#hc-faq">Browse all questions &amp; answers</a>
+      </p>
+
+      <div class="hc-tiles">
+        <a class="hc-tile" href="#hc-order-status">
+          <span class="hc-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h13v10H3z"/><path d="M16 10h3l2 3v4h-5z"/><circle cx="7" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg></span>
+          <span class="hc-tile-title">Where is my order?</span>
+          <span class="hc-tile-sub">Status &amp; lead times</span>
+        </a>
+        <a class="hc-tile" href="#hc-order-changes">
+          <span class="hc-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M14.5 4.5l5 5L9 20H4v-5z"/></svg></span>
+          <span class="hc-tile-title">Changes &amp; Cancellations</span>
+          <span class="hc-tile-sub">Barrel &amp; chassis forms</span>
+        </a>
+        <a class="hc-tile" href="#hc-returns">
+          <span class="hc-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg></span>
+          <span class="hc-tile-title">Returns &amp; Exchanges</span>
+          <span class="hc-tile-sub">Policy &amp; fees</span>
+        </a>
+        <a class="hc-tile" href="#faq-rebate-redeem">
+          <span class="hc-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12v8H4v-8"/><path d="M2 7h20v5H2z"/><path d="M12 20V7"/><path d="M12 7H8a2.5 2.5 0 0 1 0-5c3 0 4 5 4 5z"/><path d="M12 7h4a2.5 2.5 0 0 0 0-5c-3 0-4 5-4 5z"/></svg></span>
+          <span class="hc-tile-title">Free Suppressor Rebate</span>
+          <span class="hc-tile-sub">How to redeem</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="hc-page-nav" aria-label="Help Center sections">
+    <div class="hc-wrap hc-page-nav-inner">
+      <a href="#hc-orders">Orders</a>
+      <a href="#hc-faq">FAQ</a>
+      <a href="#hc-contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ============ ORDER STATUS / CHANGES / RETURNS / EXCHANGES ============ -->
+  <section class="hc-section hc-section-orders" id="hc-orders">
+    <div class="hc-wrap">
+      <header class="hc-section-head">
+        <h2>Order Status, Changes, Returns &amp; Exchanges</h2>
+        <p class="hc-section-lede">Start here for quick answers to our most frequently asked questions.</p>
+      </header>
+
+      <div class="hc-order-grid">
+
+        <article class="hc-order-card hc-featured" id="hc-order-status">
+          <h3>Check the Status of My Order</h3>
+          <p><a class="hc-inline-link" href="https://getoutlier.com/products/account">Log in to your Account</a> to see the status of your order.</p>
+          <p>If your order is still within the estimated lead time, please allow that timeframe to pass before contacting our team for an additional status update.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2Nm_izD8DQLWZYt_ZNI7I4Q" target="_blank" rel="noopener">Barrel Order Status Request</a></p>
+          <div class="hc-callout">
+            <p class="hc-callout-title">Lead times</p>
+            <p>Barrels are made to order, and lead times vary by barrel type and selected options:</p>
+            <ul class="hc-tick-list">
+              <li><strong>Match Precision Barrels:</strong> 2–4 weeks for stainless. Nitride and fluting may add an additional 2–4 weeks.</li>
+              <li><strong>Backdraft Barrels:</strong> 4–6 weeks. Nitride may add an additional 2–4 weeks.</li>
+              <li><strong>Carbon Fiber – Mirage Reducing Barrels:</strong> 6–8 weeks for stainless; 8–12 weeks for nitride barrels.</li>
+              <li><strong>AR Barrels:</strong> Please refer to the current lead time listed on the product page.</li>
+            </ul>
+            <p><strong>Chassis and other in-stock parts</strong> typically ship within 3 business days.</p>
+            <p class="hc-fine">Lead times are estimates and may vary based on order volume, configuration, and production requirements. Please refer to the current lead time listed on the product page.</p>
+          </div>
+        </article>
+
+        <article class="hc-order-card" id="hc-order-changes">
+          <h3>Order Changes</h3>
+          <p>Since our barrels are made to order, changes depend on the current stage of production.</p>
+          <ul class="hc-tick-list">
+            <li><strong>Production not started:</strong> No fee to modify.</li>
+            <li><strong>Production started:</strong> Modifying the order means starting a new barrel from scratch, so a $65 remanufacturing fee + $35 restocking fee applies. Canceling requires a $35 restocking fee.</li>
+          </ul>
+          <p class="hc-btn-stack">
+            <a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2Bm9rQU9ATR6jeXVV5l7aeA" target="_blank" rel="noopener">Barrel Order Modifications</a>
+            <a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2YYVvFDpkQRWdZuyCDu2fIw" target="_blank" rel="noopener">Chassis Order Modifications</a>
+          </p>
+        </article>
+
+        <article class="hc-order-card" id="hc-order-cancel">
+          <h3>Order Cancellations</h3>
+          <p>Since our barrels are made to order, cancellation depends on the current stage of production.</p>
+          <ul class="hc-tick-list">
+            <li><strong>Production not started:</strong> No fee to cancel.</li>
+            <li><strong>Production started:</strong> Canceling requires a $35 restocking fee.</li>
+          </ul>
+          <p class="hc-btn-stack">
+            <a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/27S5rJ0VaTDmnYXL458cGEA" target="_blank" rel="noopener">Barrel Order Cancellations</a>
+            <a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2ehkNuUehRJGgfRLpx_NhGg" target="_blank" rel="noopener">Chassis Order Cancellations</a>
+          </p>
+        </article>
+
+        <article class="hc-order-card hc-wide" id="hc-returns">
+          <div class="hc-two-up">
+            <div>
+              <h3>Returns &amp; Exchanges Policy</h3>
+              <p>This policy applies to orders that have already shipped. All items must be unused and returned in their original condition to be eligible for a return or exchange.</p>
+              <p>Customers are responsible for verifying product specifications, selections, and compatibility before placing an order. Incorrectly ordered products are subject to the applicable return or exchange terms and fees listed below.</p>
+              <p>Original shipping charges are non-refundable. Additional shipping costs associated with a return or exchange are the responsibility of the customer.</p>
+              <p class="hc-fine">Outlier USA reserves the right to update or modify this policy at its discretion. The current version published on our website supersedes all previous versions.</p>
+            </div>
+            <div>
+              <div class="hc-fee-card">
+                <h4>Chassis</h4>
+                <ul class="hc-tick-list">
+                  <li><strong>Returns for Refund:</strong> A $35 restocking fee applies.</li>
+                  <li><strong>Exchanges:</strong> A $15 shipping fee applies.</li>
+                </ul>
+              </div>
+              <div class="hc-fee-card">
+                <h4>Barrels</h4>
+                <ul class="hc-tick-list">
+                  <li><strong>Returns for Refund:</strong> A $35 restocking fee applies.</li>
+                  <li><strong>Exchanges:</strong> A $35 restocking fee applies. If the barrel requires remanufacturing to complete the exchange, an additional $65 remanufacturing fee will apply.</li>
+                </ul>
+              </div>
+              <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://share-na2.hsforms.com/1XMQ7-T6oQo2SZWtDXuy5Ngc5bz3" target="_blank" rel="noopener">Complete the Returns &amp; Exchanges Form</a></p>
+              <p class="hc-fine">Our team will follow up with you within 3 business days.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="hc-order-card" id="hc-defective">
+          <h3>Incorrect or Defective Part</h3>
+          <p>We apologize for the inconvenience. Please complete the Incorrect or Defective Part Form. Our team will review your request and follow up with next steps within 3 business days.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/27KskekuGRcaRLHhTtfo0PQ" target="_blank" rel="noopener">Incorrect or Defective Part Form</a></p>
+        </article>
+
+        <article class="hc-order-card" id="hc-missing">
+          <h3>Missing Item</h3>
+          <p>First, check your packing slip. Your order may have been split into multiple shipments so available items could ship sooner. The packing slip will only list the items included in your current shipment; any remaining items will ship separately at a later date.</p>
+          <p>If your packing slip shows that an item should have been included in the shipment but is missing, please complete the Missing Item Report below. Our team will review your request and follow up with further steps within 3 business days.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2rqVrkBZDTmGRYdY_9SuEXg" target="_blank" rel="noopener">Missing Item Report</a></p>
+        </article>
+
+        <article class="hc-order-card" id="hc-split">
+          <h3>Split Shipment</h3>
+          <p>Yes. If you’d like available items shipped separately from the rest of your order, please complete the Split Order Shipment Form. A $15 fee will apply to cover the additional shipping associated with this request.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2EcD-ewBFRzO_aoH5iOB8vw" target="_blank" rel="noopener">Split Order Shipment Form</a></p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="hc-section hc-section-faq" id="hc-faq">
+    <div class="hc-wrap">
+      <header class="hc-section-head">
+        <h2>Outlier FAQ — Barrels, Chassis &amp; Ordering</h2>
+        <p class="hc-section-lede">Browse by category, or use the search at the top of the page.</p>
+        <div class="hc-faq-tools">
+          <button type="button" class="hc-link-btn" data-expand="#hc-faq">Expand all</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="hc-link-btn" data-collapse="#hc-faq">Collapse all</button>
+        </div>
+      </header>
+
+      <nav class="hc-cat-jump" aria-label="FAQ categories">
+        <a href="#faq-barrels">Barrels</a>
+        <a href="#faq-chassis">Chassis</a>
+        <a href="#faq-ordering">Ordering &amp; Lead Times</a>
+        <a href="#faq-rebate">Suppressor Rebate</a>
+        <a href="#faq-general">General</a>
+      </nav>
+
+      <!-- ---------- Barrels ---------- -->
+      <div class="hc-faq-cat" id="faq-barrels">
+        <h3 class="hc-faq-cat-title">Barrels</h3>
+
+        <details class="hc-faq-item" id="faq-barrel-lengths"><summary>What barrel lengths do you offer?</summary><div class="hc-faq-a">
+          <p>Match Precision barrels: 16 ", 18", 20", 22", 24", and 26"</p>
+          <p>Backdraft barrels: 26"</p>
+          <p>Carbon Fiber - Mirage Reducing Barrel: 20”, 26”</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-barrel-materials"><summary>What materials are your barrels made from?</summary><div class="hc-faq-a">
+          <p>Premium 416R stainless steel.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-custom-chamber"><summary>Can I request an action or chamber that isn’t listed on your website?</summary><div class="hc-faq-a">
+          <p>Our barrels are chambered and threaded only in the configurations listed on our website. Due to our current machining and programming processes, we’re unable to accommodate custom chambering, threading, or other custom product requests.</p>
+          <p>If you need a configuration we don’t currently offer, you can purchase a <strong>complete barrel blank</strong> and have it chambered and threaded by a qualified gunsmith. Barrels must either be ordered as a complete blank or fully chambered and threaded by Outlier USA.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-twist-rate"><summary>What is the twist rate on your barrels, and does it vary by length/caliber?</summary><div class="hc-faq-a">
+          <p>Twist rate varies by caliber (consistent across lengths within that caliber)</p>
+          <table class="hc-data-table">
+            <caption class="hc-sr">Twist rate by caliber</caption>
+            <thead><tr><th scope="col">Caliber / Platform</th><th scope="col">Twist Rate</th></tr></thead>
+            <tbody>
+              <tr><td>6mm / .243</td><td>1:7</td></tr>
+              <tr><td>6.5mm / .264</td><td>1:7</td></tr>
+              <tr><td>7mm / .284</td><td>1:8</td></tr>
+              <tr><td>7.62mm / .308</td><td>1:8</td></tr>
+              <tr><td>AR9</td><td>1:10"</td></tr>
+              <tr><td>AR15</td><td>1:8"</td></tr>
+              <tr><td>AR10</td><td>1:7" or 1:8" — depending on caliber</td></tr>
+            </tbody>
+          </table>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-bolt-specs"><summary>What are the specs on bolt action barrels?</summary><div class="hc-faq-a">
+          <p>All bolt action barrels are 1.2" outer diameter (OD), either straight bull or MTU contour, unshouldered, with 5/8-24 TPI muzzle threading.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-backdraft-specs"><summary>What are the specs on Backdraft barrels?</summary><div class="hc-faq-a">
+          <p>All Backdraft barrels have a 1.20" OD across all calibers, with the exception of AR9 and AR15 barrels, which have a 1.0" OD.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-bull-vs-mtu"><summary>What is the difference between the Bull and MTU contour?</summary><div class="hc-faq-a">
+          <p>The Bull contour is a straight contour, holding the same 1.2" OD along its full length. The MTU contour has a slight taper toward the end of the barrel.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-mtu"><summary>What is the MTU contour?</summary><div class="hc-faq-a">
+          <p>MTU stands for Marksmanship Training Unit — the contour was designed to the specs that the Marksmanship Unit requested for their rifles. Chamber diameter is 1.20", and muzzle diameter grows as the barrel gets shorter:</p>
+          <table class="hc-data-table">
+            <caption class="hc-sr">MTU muzzle diameter by barrel length</caption>
+            <thead><tr><th scope="col">Length</th><th scope="col">Muzzle Diameter</th></tr></thead>
+            <tbody>
+              <tr><td>26"</td><td>.93"</td></tr>
+              <tr><td>24"</td><td>.97"</td></tr>
+              <tr><td>22"</td><td>1.01"</td></tr>
+              <tr><td>20"</td><td>1.05"</td></tr>
+              <tr><td>18"</td><td>1.09"</td></tr>
+              <tr><td>16.5"</td><td>1.13"</td></tr>
+            </tbody>
+          </table>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-barrel-nut"><summary>What barrel nut do your barrels use, and how do I install it?</summary><div class="hc-faq-a">
+          <p>All bolt action barrels come with a proprietary barrel nut fitted to the selected pre-fit. The nut is 1.30" across the flats — you can use any 1.30" open-end wrench or straight claw crowfoot to install the barrel. To set headspace, make sure you have a known-good set of headspace gauges.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-wrench"><summary>Which barrel nut wrench should I use with my Outlier bolt action barrel?</summary><div class="hc-faq-a">
+          <p>A 33mm (1.30") crowfoot wrench — <a class="hc-inline-link" href="https://www.amazon.com/TIBOO-DAY-Crowfoot-Wrench-Metric/dp/B0GY1KTQWK" target="_blank" rel="noopener">here's a link to one on Amazon</a>.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-headspace"><summary>How do I set the headspace?</summary><div class="hc-faq-a">
+          <p>Our barrels use the provided barrel nut to set headspace. You'll need a known-good set of headspace gauges, a 33mm open-end wrench, and a barrel vice. If you are not comfortable with the installation or headspacing process, we recommend having a qualified gunsmith perform the installation.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-torque"><summary>What torque should I use on the barrel nut?</summary><div class="hc-faq-a">
+          <p>For our barrel nut system, we recommend 40–55 ft-lbs of torque for most receivers. We do not recommend using the receiver manufacturer’s barrel torque specification, as those specifications are typically intended for a shouldered barrel installation rather than a barrel nut system.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-savage-prefit"><summary>Should I get a Savage Large or Savage Small pre-fit?</summary><div class="hc-faq-a">
+          <p>Most Savage rifles use the Savage Small Shank. To confirm which pre-fit you need, measure your existing barrel nut to determine whether your rifle uses a Small or Large Shank.</p>
+          <ul class="hc-tick-list">
+            <li><strong>Small Shank:</strong> barrel is 1.055", nut is 7/8" wide</li>
+            <li><strong>Large Shank:</strong> barrel is 1.120", nut is 5/8" wide</li>
+          </ul>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-not-compatible"><summary>Which actions are you not compatible with?</summary><div class="hc-faq-a">
+          <p>Common actions we do not accommodate are Browning X-Bolt, Coup de Grace, Defiance, Curtis, and Faxon FX7.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-barrel-weight"><summary>How much do your bolt action barrels weigh?</summary><div class="hc-faq-a">
+          <p>Weights are estimates only and vary by caliber — lightest is .30 bore, heaviest is .243 bore.</p>
+          <div class="hc-table-scroll" role="region" aria-label="Bolt action barrel weights" tabindex="0">
+            <table class="hc-data-table hc-wide-table">
+              <caption class="hc-sr">Bolt action barrel weights by contour and length</caption>
+              <thead><tr><th scope="col">Contour</th><th scope="col">16.5"</th><th scope="col">18"</th><th scope="col">20"</th><th scope="col">22"</th><th scope="col">24"</th><th scope="col">26"</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">MTU, fluted</th><td>3 lb 11 oz</td><td>3 lb 14 oz</td><td>4 lb 1 oz</td><td>4 lb 4 oz</td><td>4 lb 7 oz</td><td>5 lb 0 oz</td></tr>
+                <tr><th scope="row">MTU</th><td>4 lb 2 oz</td><td>4 lb 5 oz</td><td>5 lb 2 oz</td><td>5 lb 4 oz</td><td>5 lb 12 oz</td><td>6 lb 1 oz</td></tr>
+                <tr><th scope="row">Bull contour, fluted</th><td>3 lb 13 oz</td><td>4 lb 1 oz</td><td>4 lb 6 oz</td><td>4 lb 13 oz</td><td>5 lb 4 oz</td><td>5 lb 9 oz</td></tr>
+                <tr><th scope="row">Bull contour</th><td>4 lb 11 oz</td><td>5 lb 2 oz</td><td>5 lb 13 oz</td><td>6 lb 7 oz</td><td>6 lb 14 oz</td><td>7 lb 8 oz</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-break-in"><summary>Do I need to break in my new bolt action barrel?</summary><div class="hc-faq-a">
+          <p>No special break-in process is required — clean it to your liking and go shoot.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-backdraft-maintenance"><summary>What's the maintenance protocol for Backdraft barrels?</summary><div class="hc-faq-a">
+          <p>For optimal performance and reduced carbon buildup, apply one squirt of Backdraft Carbon Defense into each of the 3 barrel channels before shooting, and again after shooting. A sample bottle will be included with your barrel order.</p>
+          <p>Backdraft Carbon Defense is a water-based carbon solvent designed to help reduce carbon fouling and unburnt particulate accumulation within the barrel channel system. Regular use helps protect against buildup to ensure clean and safe operation.</p>
+          <p>After shooting, allow the barrel to cool before applying cleaner. Excess residue may be removed with compressed air, patches, or a cleaning brush as needed.</p>
+        </div></details>
+      </div>
+
+      <!-- ---------- Chassis ---------- -->
+      <div class="hc-faq-cat" id="faq-chassis">
+        <h3 class="hc-faq-cat-title">Chassis</h3>
+
+        <details class="hc-faq-item" id="faq-free-chassis"><summary>How do I get my free chassis with a barrel purchase?</summary><div class="hc-faq-a">
+          <p>Add the chassis of your choice to your cart along with your barrel. The chassis discount will be automatically applied at checkout, making the chassis free.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-chassis-fit"><summary>What chassis fits my action?</summary><div class="hc-faq-a">
+          <p>Chassis compatibility depends on your specific action and configuration. Review our most common compatibility questions below.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-rem700"><summary>Which actions are compatible with the Remington 700 pre-fit chassis?</summary><div class="hc-faq-a">
+          <p>The Remington 700 pre-fit shares the same footprint across: Rem 700 SA, Aero Solus, Bergara, Christensen Arms, Curtis, Faxon FX7, Impact, Terminus Zeus, and Weatherby 307.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-ruger"><summary>Is the Ruger chassis compatible with the Ruger American Gen1 and Gen2?</summary><div class="hc-faq-a">
+          <p>Yes. The Gen1 and Gen2 does not change the action/chassis footprint interface.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-savage-model"><summary>Which model do I get for my Savage action?</summary><div class="hc-faq-a">
+          <p>Savage SA and Savage LA have different footprints, so you'll need to pick the right one for your action:</p>
+          <ul class="hc-tick-list">
+            <li><strong>Savage SA:</strong> Model 110-10, 11, 12, 14, 16 — 3.0" magwell, for small cartridges</li>
+            <li><strong>Savage LA:</strong> Model 110, 111, 112, 114, 116 — 3.715"/3.850" magwell, for large cartridges</li>
+          </ul>
+          <p>Savage Axis - both short and long actions share the same footprint. The only thing that changes is magwell length: short action 3.0" vs. long action 3.56".</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-savage-release"><summary>Will your chassis work with the Savage bolt release?</summary><div class="hc-faq-a">
+          <p>Our chassis is designed to work with both top and bottom bolt release designs. The bottom release can be engaged through the side slot in the chassis (tool not included).</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-tikka"><summary>Which Tikka models will the Tikka chassis fit?</summary><div class="hc-faq-a">
+          <p>T, T1, T3, and T3x — both short action 3.0”, and long action 3.56”, differing by magwell length.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-chassis-weight"><summary>How much does the chassis weigh, with different configurations?</summary><div class="hc-faq-a">
+          <table class="hc-data-table">
+            <caption class="hc-sr">Chassis weight by component and option</caption>
+            <thead><tr><th scope="col">Component</th><th scope="col">Option</th><th scope="col">Weight</th></tr></thead>
+            <tbody>
+              <tr><td>Stock</td><td>Standard / Light</td><td>23.0oz</td></tr>
+              <tr><td>Stock</td><td>Heavy</td><td>38.0oz</td></tr>
+              <tr><td>Rail</td><td>7.5" Rail</td><td>4.5oz</td></tr>
+              <tr><td>Rail</td><td>10.5" Rail</td><td>6.6oz</td></tr>
+              <tr><td>Rail</td><td>15.5" Rail</td><td>9.0oz</td></tr>
+              <tr><td>Bag rider</td><td>Wedge</td><td>2.6oz</td></tr>
+              <tr><td>Bag rider</td><td>Single post</td><td>2.8oz</td></tr>
+              <tr><td>Bag rider</td><td>Heavy</td><td>15.3oz</td></tr>
+            </tbody>
+          </table>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-lop"><summary>What is the adjustable length of pull range?</summary><div class="hc-faq-a">
+          <p>13.25" to 15.75".</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-chassis-compat"><summary>What is the chassis compatible with?</summary><div class="hc-faq-a">
+          <p>All of our chassis are designed to work with AICS magazines, AR-type carbine buffer tubes (both commercial and Mil-Spec), and AR-type grips without a beavertail.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-magazines"><summary>What magazines are commonly used with your chassis?</summary><div class="hc-faq-a">
+          <p>Our chassis are designed around Accurate-Mag AICS steel magazines. MDT magazines are also a great compatible option. Check out <a class="hc-inline-link" href="https://mdttac.com/" target="_blank" rel="noopener">Mdttac.com</a> and <a class="hc-inline-link" href="https://accurate-mag.com/" target="_blank" rel="noopener">accurate-mag.com</a>.</p>
+          <table class="hc-data-table">
+            <caption class="hc-sr">Commonly used magazines and their length</caption>
+            <thead><tr><th scope="col">Magazine</th><th scope="col">Length</th></tr></thead>
+            <tbody>
+              <tr><td>.223 (AI), MDT Metal &amp; Poly</td><td>3.0"</td></tr>
+              <tr><td>6mm ARC, MDT Metal</td><td>3.0"</td></tr>
+              <tr><td>.308 Win, Accurate Metal</td><td>3.0"</td></tr>
+              <tr><td>.308 Win / 6.5 Creedmoor, MDT Metal</td><td>3.0"</td></tr>
+              <tr><td>300 WSM / 6.5 PRC, MDT Metal</td><td>3.0"</td></tr>
+              <tr><td>.30-06 / 6.5 &amp; 7 PRC, MDT Metal</td><td>3.56"</td></tr>
+              <tr><td>300 Win Mag / 7mm Mag, Accurate</td><td>3.715"</td></tr>
+              <tr><td>300 Win Mag / 7mm Mag, MDT Metal</td><td>3.715"</td></tr>
+              <tr><td>300 WSM / 6.5 PRC, MDT</td><td>3.715"</td></tr>
+              <tr><td>.30-06, Accurate Metal</td><td>3.715"</td></tr>
+              <tr><td>.30-06, MDT Metal</td><td>3.715"</td></tr>
+              <tr><td>300 Ultra Mag / 7 PRC, Accurate</td><td>3.715"</td></tr>
+              <tr><td>300 PRC / 7 PRC, MDT Metal</td><td>3.85"</td></tr>
+              <tr><td>300 Ultra Mag, Accurate (CIP)</td><td>3.85"</td></tr>
+              <tr><td>300 Weatherby Magnum, MDT (CIP)</td><td>3.85"</td></tr>
+            </tbody>
+          </table>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-folding-adapter"><summary>What folding stock adapter options should I consider?</summary><div class="hc-faq-a">
+          <ul class="hc-tick-list">
+            <li><a class="hc-inline-link" href="https://mdttac.com/products/folding-stock-adapter?variant=59071478759505" target="_blank" rel="noopener">Carbine to Carbine stock adapter</a></li>
+            <li><a class="hc-inline-link" href="https://mdttac.com/products/folding-stock-adapter?variant=59071478693969" target="_blank" rel="noopener">Carbine to Fixed stock adapter</a></li>
+          </ul>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-left-hand"><summary>Do you make left-handed chassis?</summary><div class="hc-faq-a">
+          <p>Not at this time.</p>
+        </div></details>
+      </div>
+
+      <!-- ---------- Ordering & Lead Times ---------- -->
+      <div class="hc-faq-cat" id="faq-ordering">
+        <h3 class="hc-faq-cat-title">Ordering &amp; Lead Times</h3>
+
+        <details class="hc-faq-item" id="faq-lead-times"><summary>How long does it take to build and ship my order?</summary><div class="hc-faq-a">
+          <p>Barrels are made to order, and lead times vary by barrel type and selected options:</p>
+          <ul class="hc-tick-list">
+            <li><strong>Match Precision Barrels:</strong> 2–4 weeks for stainless. Nitride and fluting may add an additional 2–4 weeks.</li>
+            <li><strong>Backdraft Barrels:</strong> 4–6 weeks. Nitride may add an additional 2–4 weeks.</li>
+            <li><strong>Carbon Fiber – Mirage Reducing Barrels:</strong> 6–8 weeks for stainless; 8–12 weeks for nitride barrels.</li>
+            <li><strong>AR Barrels:</strong> Please refer to the current lead time listed on the product page.</li>
+          </ul>
+          <p><strong>Chassis and other in-stock parts</strong> typically ship within 3 business days.</p>
+          <p>Lead times are estimates and may vary based on order volume, configuration, and production requirements. Please refer to the current lead time listed on the product page.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-order-status"><summary>What is the status of my order?</summary><div class="hc-faq-a">
+          <p><a class="hc-inline-link" href="https://getoutlier.com/products/account">Log in to your Account</a> to see the status of your order.</p>
+          <p>If your order is still within the estimated lead time, please allow that timeframe to pass before contacting our team for an additional status update.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2Nm_izD8DQLWZYt_ZNI7I4Q" target="_blank" rel="noopener">Barrel Order Status Request</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-rush"><summary>Do you offer expedited or rush orders?</summary><div class="hc-faq-a">
+          <p>We do not offer expedited orders — barrels are built on a first-in, first-out basis, depending on the specific model.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-modify-barrel"><summary>How do I modify my barrel order?</summary><div class="hc-faq-a">
+          <p>Since our barrels are made to order, changes depend on the current stage of production.</p>
+          <ul class="hc-tick-list">
+            <li><strong>Production not started:</strong> No fee to modify.</li>
+            <li><strong>Production started:</strong> Modifying the order means starting a new barrel from scratch, so a $65 remanufacturing fee + $35 restocking fee applies. Canceling requires a $35 restocking fee.</li>
+          </ul>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2Bm9rQU9ATR6jeXVV5l7aeA" target="_blank" rel="noopener">Barrel Order Modifications</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-cancel-barrel"><summary>How do I cancel my barrel order?</summary><div class="hc-faq-a">
+          <p>Since our barrels are made to order, cancellation depends on the current stage of production.</p>
+          <ul class="hc-tick-list">
+            <li><strong>Production not started:</strong> No fee to cancel.</li>
+            <li><strong>Production started:</strong> Canceling requires a $35 restocking fee.</li>
+          </ul>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/27S5rJ0VaTDmnYXL458cGEA" target="_blank" rel="noopener">Barrel Order Cancellations</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-modify-chassis"><summary>How do I modify my chassis order?</summary><div class="hc-faq-a">
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2YYVvFDpkQRWdZuyCDu2fIw" target="_blank" rel="noopener">Chassis Order Modifications</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-cancel-chassis"><summary>How do I cancel my chassis order?</summary><div class="hc-faq-a">
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2ehkNuUehRJGgfRLpx_NhGg" target="_blank" rel="noopener">Chassis Order Cancellations</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-defective"><summary>I received an incorrect or defective part — what do I do?</summary><div class="hc-faq-a">
+          <p>We apologize for the inconvenience. Please complete the Incorrect or Defective Part Form. Our team will review your request and follow up with next steps within 3 business days.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/27KskekuGRcaRLHhTtfo0PQ" target="_blank" rel="noopener">Incorrect or Defective Part Form</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-missing"><summary>My order is missing an item — what do I do?</summary><div class="hc-faq-a">
+          <p>First, check your packing slip. Your order may have been split into multiple shipments so available items could ship sooner. The packing slip will only list the items included in your current shipment; any remaining items will ship separately at a later date.</p>
+          <p>If your packing slip shows that an item should have been included in the shipment but is missing, please complete the Missing Item Report below. Our team will review your request and follow up with further steps within 3 business days.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2rqVrkBZDTmGRYdY_9SuEXg" target="_blank" rel="noopener">Missing Item Report</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-split"><summary>Can I split my shipment?</summary><div class="hc-faq-a">
+          <p>Yes. If you’d like available items shipped separately from the rest of your order, please complete the Split Order Shipment Form. A $15 fee will apply to cover the additional shipping associated with this request.</p>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2EcD-ewBFRzO_aoH5iOB8vw" target="_blank" rel="noopener">Split Order Shipment Form</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-returns"><summary>What is your Returns &amp; Exchanges Policy?</summary><div class="hc-faq-a">
+          <p>This policy applies to orders that have already shipped. All items must be unused and returned in their original condition to be eligible for a return or exchange.</p>
+          <p>Customers are responsible for verifying product specifications, selections, and compatibility before placing an order. Incorrectly ordered products are subject to the applicable return or exchange terms and fees listed below.</p>
+          <p>Original shipping charges are non-refundable. Additional shipping costs associated with a return or exchange are the responsibility of the customer.</p>
+          <p>Outlier USA reserves the right to update or modify this policy at its discretion. The current version published on our website supersedes all previous versions.</p>
+          <h4>Chassis</h4>
+          <ul class="hc-tick-list">
+            <li><strong>Returns for Refund:</strong> A $35 restocking fee applies.</li>
+            <li><strong>Exchanges:</strong> A $15 shipping fee applies.</li>
+          </ul>
+          <h4>Barrels</h4>
+          <ul class="hc-tick-list">
+            <li><strong>Returns for Refund:</strong> A $35 restocking fee applies.</li>
+            <li><strong>Exchanges:</strong> A $35 restocking fee applies. If the barrel requires remanufacturing to complete the exchange, an additional $65 remanufacturing fee will apply.</li>
+          </ul>
+          <p class="hc-btn-stack"><a class="hc-btn hc-btn-primary" href="https://share-na2.hsforms.com/1XMQ7-T6oQo2SZWtDXuy5Ngc5bz3" target="_blank" rel="noopener">Complete the Returns &amp; Exchanges Form</a></p>
+          <p>Our team will follow up with you within 3 business days.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-payment-declined"><summary>Why was my payment declined?</summary><div class="hc-faq-a">
+          <p>Payment declines are most commonly caused by a billing address mismatch. Make sure the billing address entered at checkout matches the address your card issuer has on file. If your payment is still declined, please contact your card issuer to verify your information and determine the reason for the decline.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-discounts"><summary>Can I use multiple discounts on one order?</summary><div class="hc-faq-a">
+          <p>No. Only one discount or promotional offer may be applied per order. Discounts and promotions cannot be combined or stacked.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-state-restrictions"><summary>Are there any state restrictions on barrel shipping?</summary><div class="hc-faq-a">
+          <p>We can ship barrels directly to customers in all states except California.</p>
+          <p>California customers must order their barrel through a local FFL dealer. Please contact your local dealer for assistance with placing your order.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-international"><summary>Do you ship outside the US?</summary><div class="hc-faq-a">
+          <p>Due to ITAR and EAR regulations, we do not ship outside the US.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-tracking"><summary>How do I track my order once it ships?</summary><div class="hc-faq-a">
+          <p>You will receive a shipping notification with a tracking number once the order has shipped.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-lost"><summary>My shipment was lost in transit — how do I get my order?</summary><div class="hc-faq-a">
+          <p>Occasionally UPS may take extra time to scan in a package or may run late. If you believe your package is lost, or there's been no tracking movement, please allow two weeks from the last update before taking further action. If there's still no movement after two weeks, please file a claim with UPS and contact us at <em>info@getoutlier.com</em>.</p>
+        </div></details>
+      </div>
+
+      <!-- ---------- Suppressor Rebate ---------- -->
+      <div class="hc-faq-cat" id="faq-rebate">
+        <h3 class="hc-faq-cat-title">Suppressor Rebate</h3>
+
+        <details class="hc-faq-item" id="faq-rebate-redeem"><summary>How to Redeem the Free Suppressor Rebate?</summary><div class="hc-faq-a">
+          <ol class="hc-num-list">
+            <li>Once you have a redemption code, visit <a class="hc-inline-link" href="https://backdraftsuppressors.com/" target="_blank" rel="noopener">BackdraftSuppressors.com</a></li>
+            <li>Select a 4” Hunter, or upgrade to 6”, 8”, or steel Poacher for an additional cost.</li>
+            <li>Select the required HUB Adapter*.</li>
+            <li>Enter the rebate code at checkout.</li>
+            <li>Select your preferred FFL/SOT Dealer for suppressor transfer.</li>
+            <li>Complete checkout and pay all required charges, including any upgrade cost, HUB Adapter, shipping and taxes.</li>
+          </ol>
+          <p class="hc-fine">*Please note: Shipping, the required HUB Adapter, state taxes and any FFL/SOT dealer-related fees are the responsibility of the customer.</p>
+          <p>For Terms &amp; Conditions, visit: <a class="hc-inline-link" href="https://backdraftsuppressors.com/redemption/" target="_blank" rel="noopener">backdraftsuppressors.com/redemption/</a></p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-rebate-get"><summary>How do I get a Free Suppressor Rebate?</summary><div class="hc-faq-a">
+          <p>When you purchase an Outlier barrel or chassis, you’ll receive an email with your Free Suppressor Rebate code. If you don’t see the email in your inbox, please check your spam or junk folder.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-rebate-substitute"><summary>Can I substitute the suppressor rebate for something else?</summary><div class="hc-faq-a">
+          <p>No. The Free Suppressor Rebate has no cash value and cannot be exchanged, substituted, or applied toward other products.</p>
+        </div></details>
+      </div>
+
+      <!-- ---------- General ---------- -->
+      <div class="hc-faq-cat" id="faq-general">
+        <h3 class="hc-faq-cat-title">General</h3>
+
+        <details class="hc-faq-item" id="faq-warranty"><summary>Do you offer a warranty?</summary><div class="hc-faq-a">
+          <p>Yes — all items carry a lifetime warranty.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-match-certificate"><summary>I won a match certificate — how do I redeem it?</summary><div class="hc-faq-a">
+          <p>Congratulations! Select the link below that corresponds with the match certificate you received and complete the redemption form. Our team will review your submission and follow up with the next steps for placing your order.</p>
+          <p class="hc-btn-stack">
+            <a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2mF1oIkHCTRyoIiFPPrFHOw" target="_blank" rel="noopener">Chassis</a>
+            <a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2HVTVD7dlSWGBnOK8AMUOCA" target="_blank" rel="noopener">Match Precision or Backdraft Barrel</a>
+            <a class="hc-btn hc-btn-primary" href="https://c5bz3.share-na2.hsforms.com/2K2sxY9EJT263s6Msjq2UPQ" target="_blank" rel="noopener">Suppressor</a>
+          </p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-visit"><summary>Can I visit Outlier USA in person?</summary><div class="hc-faq-a">
+          <p>Our facility is a manufacturing, shipping, and receiving facility only — we do not have a storefront at this time.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-dealer"><summary>How do I apply to be a dealer?</summary><div class="hc-faq-a">
+          <p>Go to <a class="hc-inline-link" href="https://dealers.getoutlier.com/" target="_blank" rel="noopener">Outlier USA Dealers</a> to inquire.</p>
+        </div></details>
+
+        <details class="hc-faq-item" id="faq-military"><summary>Do you offer a Veteran / Military / Law Enforcement discount?</summary><div class="hc-faq-a">
+          <p>We do not offer a broad discount, since we keep our prices as low as possible for everyone.</p>
+          <p>We do offer an Official Use Only discount for qualifying Military and Law Enforcement purchases. To request this discount, please email <a class="hc-inline-link" href="mailto:info@getoutlier.com"><strong>info@getoutlier.com</strong></a> with a signed document on official department or agency letterhead confirming that the product is being purchased for official duty use and not personal use.</p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT (intentionally low-emphasis) ============ -->
+  <section class="hc-section hc-section-contact" id="hc-contact">
+    <div class="hc-wrap">
+      <h2 class="hc-contact-title">Still need help?</h2>
+      <p class="hc-contact-lede">Most questions are answered above. If you still need us, choose the form that matches your request — it reaches the right team fastest.</p>
+      <ul class="hc-contact-list">
+        <li><a href="https://c5bz3.share-na2.hsforms.com/2Nm_izD8DQLWZYt_ZNI7I4Q" target="_blank" rel="noopener">Barrel Order Status Request</a></li>
+        <li><a href="https://c5bz3.share-na2.hsforms.com/2Bm9rQU9ATR6jeXVV5l7aeA" target="_blank" rel="noopener">Barrel Order Modifications</a></li>
+        <li><a href="https://c5bz3.share-na2.hsforms.com/2YYVvFDpkQRWdZuyCDu2fIw" target="_blank" rel="noopener">Chassis Order Modifications</a></li>
+        <li><a href="https://c5bz3.share-na2.hsforms.com/27S5rJ0VaTDmnYXL458cGEA" target="_blank" rel="noopener">Barrel Order Cancellations</a></li>
+        <li><a href="https://c5bz3.share-na2.hsforms.com/2ehkNuUehRJGgfRLpx_NhGg" target="_blank" rel="noopener">Chassis Order Cancellations</a></li>
+        <li><a href="https://share-na2.hsforms.com/1XMQ7-T6oQo2SZWtDXuy5Ngc5bz3" target="_blank" rel="noopener">Returns &amp; Exchanges Form</a></li>
+        <li><a href="https://c5bz3.share-na2.hsforms.com/27KskekuGRcaRLHhTtfo0PQ" target="_blank" rel="noopener">Incorrect or Defective Part Form</a></li>
+        <li><a href="https://c5bz3.share-na2.hsforms.com/2rqVrkBZDTmGRYdY_9SuEXg" target="_blank" rel="noopener">Missing Item Report</a></li>
+        <li><a href="https://c5bz3.share-na2.hsforms.com/2EcD-ewBFRzO_aoH5iOB8vw" target="_blank" rel="noopener">Split Order Shipment Form</a></li>
+        <li><a href="#faq-match-certificate">Match certificate redemption</a></li>
+        <li>Anything else — <a href="mailto:info@getoutlier.com">info@getoutlier.com</a></li>
+      </ul>
+      <p class="hc-contact-fine">Please allow 3 business days for a response.</p>
+    </div>
+  </section>
+
+  <button type="button" class="hc-to-top" id="hc-to-top" hidden aria-label="Back to top">&uarr;</button>
+</div>
+
+<script src="app.js?v=5"></script>
+</body>
+</html>

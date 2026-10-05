@@ -1,0 +1,796 @@
+/* ==========================================================================
+   Outlier USA — Help Center
+   Styled identically to the Backdraft Suppressors Help Center
+   (backdraftsuppressors.com/help-center/): Barlow 700 uppercase headings,
+   Roboto Condensed nav/buttons, Helvetica body at 14/21, #4e4e4e text on
+   white, #333 buttons, 2px radii, the Outlier watermark behind the page.
+   The rules are that page's rules, one for one.
+
+   Two differences, both forced by Ecwid rather than chosen:
+
+   1. Every class carries the hc- prefix and every rule sits under .hc-root,
+      so the Ecwid theme can't reach in and nothing leaks out.
+   2. No at-rules. An Ecwid "Embed & Custom Code" section containing a media
+      query is dropped silently, markup and all. Each of Backdraft's
+      max-width: 720px rules is rewritten as an exact step instead:
+
+        clamp(PHONE, (100vw - 720.5px) * 9999, DESKTOP)
+
+      Below 720.5px the middle term is hugely negative and the phone value
+      wins; above it, hugely positive and the desktop value wins. Same
+      breakpoint, same values, no ramp in between. 100vw is what a media
+      query measures, so the switch lands on the same pixel.
+      Reduced motion is read in app.js, which then never adds the motion
+      class; the entrance uses transitions, not keyframes.
+   ========================================================================== */
+
+.hc-root {
+  --bg:          #ffffff;
+  --bg-alt:      #f9f9f9;
+  --ink:         #333333;
+  --text:        #4e4e4e;
+  --muted:       #6e6e6e;   /* theme uses #989898; darkened to clear WCAG AA on white */
+  --line:        #e5e5e5;
+  --line-soft:   #ebebeb;
+
+  /* Cards sit over the watermark, so they are slightly translucent. */
+  --panel:       rgba(255, 255, 255, .55);
+  --panel-alt:   rgba(249, 249, 249, .62);
+
+  --radius:      2px;
+  --wrap:        1230px;
+  --gutter:      15px;
+
+  --head: Barlow, Arial, Helvetica, sans-serif;
+  --cond: "Roboto Condensed", Arial, Helvetica, sans-serif;
+  --body: Helvetica, Arial, sans-serif;
+
+  /* The phone/desktop switch, as a length: hugely negative below 720.5px,
+     hugely positive above. */
+  --hc-up: calc((100vw - 720.5px) * 9999);
+
+  /* Watermark and background need a stacking context of their own:
+     without it the z-index -1 layer lands beneath the root's background. */
+  position: relative;
+  z-index: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hc-root *,
+.hc-root *::before,
+.hc-root *::after { box-sizing: border-box; }
+
+.hc-root input,
+.hc-root input[type="search"],
+.hc-root button { box-sizing: border-box; }
+
+/* `display: grid` on an element beats the hidden attribute, so make it win. */
+.hc-root [hidden] { display: none !important; }
+
+/* ---------- Brand watermark ----------
+   The Outlier oval over the wide OUTLIER wordmark, the same mark and tone
+   as behind the product shots. The layer covers the page and no more;
+   `background-attachment: fixed` keeps the mark still while the page
+   scrolls, and the element clips it. 88vw on a phone, min(880px, 72vw)
+   above. */
+.hc-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("assets/watermark.svg") fixed center center no-repeat;
+  background-size: max(min(880px, 72vw), clamp(0px, (720.5px - 100vw) * 9999, 88vw)) auto;
+  /* On the product shots the mark sits at #f1f1f1 on white — black at ~5.5%.
+     Read through bands painted at 80% alpha it is cut to a fifth, so it is
+     laid down five times heavier to land on the same tone. */
+  opacity: .27;
+  pointer-events: none;
+}
+
+/* ---------- Guard ----------
+   A theme that styles bare elements beats inheritance from the root, so
+   restate the essentials on the elements themselves. */
+.hc-root p,
+.hc-root li,
+.hc-root td,
+.hc-root th,
+.hc-root summary,
+.hc-root input,
+.hc-root button,
+.hc-root label {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.hc-root p,
+.hc-root li,
+.hc-root td { color: var(--text); }
+
+.hc-root ul,
+.hc-root ol { margin: 0 0 21px; padding: 0; }
+
+.hc-root .hc-wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.hc-root .hc-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hc-root :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* ---------- Headings ---------- */
+.hc-root h1,
+.hc-root h2,
+.hc-root h3,
+.hc-root h4 {
+  font-family: var(--head);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .25px;
+  color: var(--ink);
+  margin: 0 0 11px;
+}
+
+/* 42/63 like the store's page heading, but never wider than the column it
+   sits in, so "HOW CAN WE HELP?" stays on one line. Measured against the
+   hero (a size container), not the viewport. */
+.hc-root h1 {
+  font-size: min(42px, calc((100vw - 60px) * 0.1085));
+  font-size: min(42px, calc((100cqi - 30px) * 0.1085));
+  line-height: 1.5;
+  margin-bottom: 21px;
+}
+
+/* 32/48 and 22/33; 24/34 and 19/28 on a phone. */
+.hc-root h2 {
+  font-size: clamp(24px, var(--hc-up), 32px);
+  line-height: clamp(34px, var(--hc-up), 48px);
+}
+
+.hc-root h3 {
+  font-size: clamp(19px, var(--hc-up), 22px);
+  line-height: clamp(28px, var(--hc-up), 33px);
+}
+
+.hc-root h4 { font-size: 18px; line-height: 26px; }
+
+.hc-root p { margin: 0 0 21px; }
+.hc-root p:last-child { margin-bottom: 0; }
+
+.hc-root a { color: var(--text); }
+.hc-root strong { font-weight: bold; }
+
+.hc-root .hc-inline-link { color: var(--ink); font-weight: bold; text-underline-offset: 3px; }
+
+/* ---------- Help Center section nav (sticky) ---------- */
+.hc-root .hc-page-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow .2s ease;
+}
+
+.hc-root .hc-page-nav.is-stuck { box-shadow: 0 2px 10px rgba(0, 0, 0, .08); }
+
+/* Gaps 30 / 20 below 720px / 12 below 400px, as on Backdraft. */
+.hc-root .hc-page-nav-inner {
+  display: flex;
+  gap: min(clamp(20px, var(--hc-up), 30px), clamp(12px, calc((100vw - 400.5px) * 9999), 20px));
+  align-items: center;
+  min-height: 48px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.hc-root .hc-page-nav-inner::-webkit-scrollbar { display: none; }
+
+.hc-root .hc-page-nav a {
+  font-family: var(--cond);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 15px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.hc-root .hc-page-nav a:hover,
+.hc-root .hc-page-nav a.is-active { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ---------- Hero ---------- */
+.hc-root .hc-hero {
+  /* The title measures itself against this band's width; see the h1 rule. */
+  container-type: inline-size;
+  padding: clamp(0px, var(--hc-up), 22px) 0 clamp(36px, var(--hc-up), 52px);
+  background: rgba(249, 249, 249, .8);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+/* Matched to `.page-heading` on the store: only the colour differs from
+   the other headings. */
+.hc-root .hc-hero h1 { margin-bottom: 10px; color: var(--text); }
+.hc-root .hc-hero-sub { color: var(--text); max-width: 620px; margin: 0 auto 30px; }
+
+/* ---------- Search ---------- */
+.hc-root .hc-search { position: relative; max-width: 660px; margin: 0 auto; }
+
+.hc-root .hc-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.hc-root .hc-search input {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 14px 44px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: none;
+  color: var(--text);
+  line-height: normal;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hc-root .hc-search input::placeholder { color: var(--muted); }
+
+.hc-root .hc-search input::-webkit-search-cancel-button,
+.hc-root .hc-search input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+
+.hc-root .hc-search input:focus { border-color: var(--ink); outline: none; }
+
+.hc-root .hc-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hc-root .hc-search-clear:hover { color: var(--ink); }
+
+.hc-root .hc-search-status { min-height: 21px; margin: 10px 0 0; color: var(--muted); }
+
+.hc-root .hc-hero-cta {
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.hc-root .hc-hero-cta .hc-btn { text-align: center; }
+
+/* ---------- Quick tiles ---------- */
+.hc-root .hc-tiles {
+  display: grid;
+  gap: 15px;
+  margin-top: 34px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.hc-root .hc-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 22px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.hc-root .hc-tile:hover {
+  border-color: var(--ink);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .09);
+  transform: translateY(-3px);
+}
+
+.hc-root .hc-tile-icon { display: block; margin-bottom: 12px; }
+
+.hc-root .hc-tile-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hc-root .hc-tile-title {
+  display: block;
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: .25px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+/* Pinned to the bottom, so titles of different lengths still leave their
+   subtitles on one line across the row. */
+.hc-root .hc-tile-sub { display: block; margin-top: auto; color: var(--muted); }
+
+/* ---------- Sections ---------- */
+.hc-root .hc-section {
+  padding: clamp(40px, var(--hc-up), 60px) 0;
+  scroll-margin-top: 50px;
+}
+
+.hc-root .hc-section-orders { background: rgba(255, 255, 255, .8); }
+
+/* White, as Backdraft's FAQ band. There the grey guide band sits between
+   orders and FAQ; with no guide here, the rule above is all that's left. */
+.hc-root .hc-section-faq {
+  background: rgba(255, 255, 255, .8);
+  border-top: 1px solid var(--line);
+}
+
+.hc-root .hc-section-head { max-width: 780px; margin-bottom: 32px; }
+.hc-root .hc-section-lede { color: var(--text); }
+
+/* ---------- Order help cards ---------- */
+.hc-root .hc-order-grid {
+  /* Wrapping flex, not an auto-fit grid: a row of two (Changes, Cancellations)
+     shares the full width instead of leaving an empty third column. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.hc-root .hc-order-card {
+  flex: 1 1 290px;
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+  scroll-margin-top: 64px;
+}
+
+.hc-root .hc-order-card.hc-featured,
+.hc-root .hc-order-card.hc-wide { flex-basis: 100%; }
+
+.hc-root .hc-order-card.hc-featured { border-color: var(--ink); }
+
+.hc-root .hc-order-card.hc-featured p,
+.hc-root .hc-order-card.hc-featured .hc-callout { max-width: 900px; }
+
+.hc-root .hc-order-card h3,
+.hc-root .hc-order-card strong { color: var(--ink); }
+
+.hc-root .hc-btn-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.hc-root .hc-callout {
+  background: var(--panel-alt);
+  border-left: 3px solid var(--ink);
+  padding: 16px 20px;
+  margin: 21px 0;
+}
+
+.hc-root .hc-callout-title {
+  font-family: var(--head);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .25px;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+/* The returns card: policy text beside the two fee panels. */
+.hc-root .hc-two-up {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 15px 30px;
+  align-items: start;
+}
+
+.hc-root .hc-fee-card {
+  background: var(--panel-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 15px;
+}
+
+.hc-root .hc-fee-card h4 { margin-bottom: 10px; }
+.hc-root .hc-fee-card .hc-tick-list { margin-bottom: 0; }
+
+.hc-root .hc-tick-list { list-style: none; padding: 0; margin: 0 0 21px; }
+
+.hc-root .hc-tick-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+}
+
+.hc-root .hc-tick-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  background: var(--ink);
+}
+
+.hc-root .hc-num-list { list-style: decimal; padding-left: 22px; margin: 0 0 21px; }
+.hc-root .hc-num-list li { margin-bottom: 8px; padding-left: 4px; }
+
+.hc-root .hc-fine { color: var(--muted); }
+
+/* ---------- Buttons ---------- */
+.hc-root .hc-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-family: var(--cond);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: normal;
+  border: 1px solid var(--ink);
+  transition: background .15s ease, color .15s ease;
+}
+
+.hc-root .hc-btn-primary { background: var(--ink); color: #fff; }
+.hc-root .hc-btn-primary:hover { background: #000; border-color: #000; color: #fff; }
+.hc-root .hc-btn-lg { padding: 16px 40px; font-size: 16px; }
+
+/* ---------- Tables ---------- */
+.hc-root .hc-table-scroll { overflow-x: auto; margin: 21px 0; }
+.hc-root .hc-table-scroll .hc-data-table { margin: 0; }
+
+.hc-root .hc-data-table { width: 100%; border-collapse: collapse; margin: 21px 0; }
+
+/* 11px 15px, and 7px sides at 13px on a phone so tables fit instead of
+   scrolling. */
+.hc-root .hc-data-table th,
+.hc-root .hc-data-table td {
+  text-align: left;
+  padding: 11px clamp(7px, var(--hc-up), 15px);
+  font-size: clamp(13px, var(--hc-up), 14px);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.hc-root .hc-data-table thead th {
+  font-family: var(--cond);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--ink);
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--line);
+}
+
+.hc-root .hc-data-table tbody th { font-weight: bold; color: var(--ink); }
+.hc-root .hc-data-table.hc-wide-table { min-width: 560px; }
+.hc-root .hc-data-table.hc-wide-table td { white-space: nowrap; }
+
+/* ---------- FAQ ---------- */
+.hc-root .hc-faq-tools { margin-top: 12px; color: var(--muted); }
+
+/* A 21px-tall link is a poor target for a finger. The padding gives it
+   room and the negative margin takes the room back, so nothing moves —
+   this replaces Backdraft's pointer: coarse rule. */
+.hc-root .hc-link-btn {
+  background: none;
+  border: 0;
+  margin: -9px 0;
+  padding: 9px 0;
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hc-root .hc-cat-jump { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+
+.hc-root .hc-cat-jump a {
+  font-family: var(--cond);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 21px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 9px 16px;
+  background: var(--panel);
+}
+
+.hc-root .hc-cat-jump a:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
+
+/* 20px 24px 8px; 16px 18px 6px on a phone. */
+.hc-root .hc-faq-cat {
+  margin-bottom: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(16px, var(--hc-up), 20px) clamp(18px, var(--hc-up), 24px) clamp(6px, var(--hc-up), 8px);
+  scroll-margin-top: 64px;
+}
+
+.hc-root .hc-faq-cat:last-of-type { margin-bottom: 0; }
+
+.hc-root .hc-faq-cat-title {
+  font-size: 22px;
+  color: var(--ink);
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  border-bottom: 2px solid var(--ink);
+}
+
+.hc-root .hc-faq-item { border-bottom: 1px solid var(--line); scroll-margin-top: 64px; }
+
+.hc-root .hc-faq-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 44px 16px 0;
+  position: relative;
+  font-family: var(--head);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--ink);
+}
+
+.hc-root .hc-faq-item > summary::-webkit-details-marker { display: none; }
+
+.hc-root .hc-faq-item > summary::before,
+.hc-root .hc-faq-item > summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: var(--muted);
+  transition: transform .25s ease, background .15s ease;
+}
+
+.hc-root .hc-faq-item > summary::after {   /* horizontal bar */
+  right: 10px;
+  width: 13px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.hc-root .hc-faq-item > summary::before {  /* vertical bar, collapses to make a minus */
+  right: 15.5px;
+  width: 2px;
+  height: 13px;
+  transform: translateY(-50%) scaleY(1);
+}
+
+.hc-root .hc-faq-item[open] > summary::before { transform: translateY(-50%) scaleY(0); }
+
+.hc-root .hc-faq-item > summary:hover::before,
+.hc-root .hc-faq-item > summary:hover::after { background: var(--ink); }
+
+.hc-root .hc-faq-item[open] > summary { color: var(--ink); transition: color .15s ease; }
+
+/* The panel spans the container; the answer keeps a reading width. */
+.hc-root .hc-faq-a { padding: 0 44px 20px 0; max-width: 820px; }
+.hc-root .hc-faq-a p { margin-bottom: 14px; }
+.hc-root .hc-faq-a p:last-child { margin-bottom: 0; }
+.hc-root .hc-faq-a .hc-data-table,
+.hc-root .hc-faq-a .hc-table-scroll { margin-top: 0; }
+.hc-root .hc-faq-a h4 { margin: 18px 0 8px; }
+
+.hc-root .hc-faq-item.is-animating .hc-faq-a {
+  overflow: hidden;
+  transition: height .28s cubic-bezier(.3, .7, .3, 1);
+}
+
+/* ---------- Search results ---------- */
+.hc-root .hc-results {
+  max-width: 820px;
+  margin: 18px auto 0;
+  text-align: left;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 6px clamp(18px, var(--hc-up), 24px);
+}
+
+.hc-root .hc-result { border-bottom: 1px solid var(--line-soft); }
+.hc-root .hc-result:last-of-type { border-bottom: 0; }
+
+.hc-root .hc-result > summary {
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding: 15px 40px 15px 0;
+  font-family: var(--head);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--ink);
+}
+
+.hc-root .hc-result > summary::-webkit-details-marker { display: none; }
+
+.hc-root .hc-result > summary::before,
+.hc-root .hc-result > summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: var(--muted);
+  transition: transform .25s ease;
+}
+
+.hc-root .hc-result > summary::after { right: 6px; width: 13px; height: 2px; transform: translateY(-50%); }
+.hc-root .hc-result > summary::before { right: 11.5px; width: 2px; height: 13px; transform: translateY(-50%) scaleY(1); }
+.hc-root .hc-result[open] > summary::before { transform: translateY(-50%) scaleY(0); }
+.hc-root .hc-result-body { padding: 0 0 18px; }
+.hc-root .hc-result-body p { margin-bottom: 12px; }
+.hc-root .hc-result-more { margin-top: 14px; }
+.hc-root .hc-result-more a { font-size: 13px; }
+.hc-root .hc-result-none { padding: 16px 0; color: var(--text); }
+
+/* ---------- Contact (deliberately quiet) ---------- */
+.hc-root .hc-section-contact {
+  background: rgba(255, 255, 255, .8);
+  border-top: 1px solid var(--line);
+  padding: 44px 0;
+}
+
+.hc-root .hc-contact-title {
+  font-family: var(--cond);
+  font-size: 16px;
+  /* Backdraft's h2 line height, which this title inherits there: 48px, 34px on phones */
+  line-height: clamp(34px, var(--hc-up), 48px);
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.hc-root .hc-contact-lede { color: var(--muted); max-width: 620px; }
+
+.hc-root .hc-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 7px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.hc-root .hc-contact-list li { color: var(--muted); margin: 0; }
+.hc-root .hc-contact-list a { color: var(--text); text-underline-offset: 3px; }
+.hc-root .hc-contact-list a:hover { color: var(--ink); }
+.hc-root .hc-contact-fine { margin-top: 18px; color: var(--muted); }
+
+/* ---------- Back to top ---------- */
+.hc-root .hc-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease, background .15s ease;
+}
+
+.hc-root .hc-to-top:hover { background: #000; }
+.hc-root .hc-to-top.is-shown { opacity: 1; transform: none; pointer-events: auto; }
+
+/* ==========================================================================
+   Motion
+   Entrances run on load above the fold and on scroll below it. Additive
+   only: with JS off, or reduced motion on, nothing is hidden or moves.
+   ========================================================================== */
+.hc-root.hc-motion .hc-hero h1,
+.hc-root.hc-motion .hc-hero-sub,
+.hc-root.hc-motion .hc-search,
+.hc-root.hc-motion .hc-hero-cta,
+.hc-root.hc-motion .hc-tile,
+.hc-root.hc-motion .hc-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .55s cubic-bezier(.2, .7, .3, 1), transform .55s cubic-bezier(.2, .7, .3, 1),
+    border-color .18s ease, box-shadow .18s ease;
+}
+
+.hc-root.hc-motion .hc-hero h1 { transition-delay: .06s, .06s, 0s, 0s; }
+.hc-root.hc-motion .hc-hero-sub { transition-delay: .12s, .12s, 0s, 0s; }
+.hc-root.hc-motion .hc-search { transition-delay: .18s, .18s, 0s, 0s; }
+.hc-root.hc-motion .hc-hero-cta { transition-delay: .22s, .22s, 0s, 0s; }
+
+.hc-root.hc-motion .hc-tile {
+  transition-delay: calc(.26s + var(--i, 0) * .07s), calc(.26s + var(--i, 0) * .07s), 0s, 0s;
+}
+
+.hc-root.hc-motion .hc-reveal {
+  transform: translateY(16px);
+  transition-delay: calc(var(--i, 0) * .07s), calc(var(--i, 0) * .07s), 0s, 0s;
+}
+
+.hc-root.hc-motion.is-loaded .hc-hero h1,
+.hc-root.hc-motion.is-loaded .hc-hero-sub,
+.hc-root.hc-motion.is-loaded .hc-search,
+.hc-root.hc-motion.is-loaded .hc-hero-cta,
+.hc-root.hc-motion.is-loaded .hc-tile,
+.hc-root.hc-motion .hc-reveal.is-in { opacity: 1; transform: none; }
+
+/* Once the tiles have risen in, hover moves them quickly, as on Backdraft. */
+.hc-root.hc-motion.is-settled .hc-tile { transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+.hc-root.hc-motion.is-loaded .hc-tile:hover { transform: translateY(-3px); }
